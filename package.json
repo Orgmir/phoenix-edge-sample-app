@@ -1,0 +1,30 @@
+{
+  "name": "dev.luisramos.phoenix.edge.sample",
+  "displayName": "EdgeSample",
+  "version": "1.0.0",
+  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "cordova build android && adb -s emulator-5554 install -r platforms/android/app/build/outputs/apk/debug/app-debug.apk && adb -s emulator-5556 install -r platforms/android/app/build/outputs/apk/debug/app-debug.apk && adb -s emulator-5554 shell am start -n dev.luisramos.phoenix.edge.sample/dev.luisramos.phoenix.edge.sample.MainActivity && adb -s emulator-5556 shell am start -n dev.luisramos.phoenix.edge.sample/dev.luisramos.phoenix.edge.sample.MainActivity"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "Apache Cordova Team",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "cordova-android": "^9.0.0",
+    "cordova-plugin-webserver": "file:../cordova-plugin-webserver",
+    "cordova-plugin-whitelist": "^1.3.4"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-webserver": {}
+    },
+    "platforms": [
+      "android"
+    ]
+  }
+}
