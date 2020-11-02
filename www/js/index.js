@@ -64,8 +64,8 @@ function listenToServer() {
 function startServer() {
 	console.log("start server");
 	webserver.onRequest(function (request) {
-		console.log("O MA GAWD! This is the request: ", request);
 		writeMsg("Request received: " + request);
+		writeMsg("Headers: " + JSON.stringify(request.headers));
 
 		webserver.sendResponse(request.requestId, {
 			status: 200,
@@ -79,11 +79,10 @@ function startServer() {
 
 	webserver.start(
 		() => {
-			console.log("Starting server!");
 			writeMsg("Server started.");
 		},
 		() => {
-			console.log("Something went wrong when starting server");
+			writeMsg("Something went wrong when starting server");
 		},
 		8080,
 		"www/certs/keystore.bks",
